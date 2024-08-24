@@ -110,6 +110,7 @@ To start the development server and run the browser:
 ```bash
 npm start
 ```
+![ReactronBase Entry](/public/assets/images/entry.png)
 
 ### 5. Start the Development Server on Electron
 
@@ -118,6 +119,7 @@ To start the development server and run the Electron app:
 ```bash
 npm run electron
 ```
+![ReactronBase Entry](/public/assets/images/electronEntry.png)
 
 ## Frontend Development
 
