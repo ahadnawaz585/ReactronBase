@@ -1,0 +1,10 @@
+{
+    "packageVersion": "1.0.0.0",
+    "packageName": "your.package.name",
+    "packageDisplayName": "Your App",
+    "packageDescription": "Your App Description",
+    "certificateFile": "path/to/certificate.pfx",
+    "certificatePassword": "your-password",
+    "store": "AppStore"  
+  }
+  

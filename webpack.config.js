@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackObfuscator = require('webpack-obfuscator');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = [
   {
@@ -56,10 +58,18 @@ module.exports = [
         }
       ],
     },
+    optimization: {
+      minimize: true,
+      minimizer: [new TerserPlugin()],
+    },
     plugins: [
       new HtmlWebpackPlugin({
         template: './src/renderer/index.html',
       }),
+      // Add WebpackObfuscator plugin here
+      new WebpackObfuscator({
+        rotateStringArray: true,
+      })
     ],
     devServer: {
       port: 9000,
@@ -90,5 +100,5 @@ module.exports = [
       ],
     },
   }
-  
+
 ];
