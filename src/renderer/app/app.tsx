@@ -1,11 +1,17 @@
 import React from 'react';
 import './app.style.scss'; // Ensure SCSS is compiled and included
 import icon from '../../../public/assets/images/icon.png'; // Adjust the path as needed
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const App = () => {
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate('/readMe'); // Navigates to the About page
+    };
+
     return (
-        
+
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
             <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg mx-auto text-center">
                 <div className='header'>
@@ -33,6 +39,14 @@ const App = () => {
                 <pre className="bg-gray-800 text-white p-4 rounded-lg mx-auto text-lg">
                     <code>src/renderer/app/app.tsx</code>
                 </pre>
+                {/* <pre className="bg-gray-800 text-white p-4 rounded-lg mx-auto text-lg"> */}
+                    <button
+                        onClick={handleClick}
+                        className="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                    >
+                        Go to About Page
+                    </button>
+                {/* </pre> */}
                 <p className="text-sm text-gray-400 mt-6">
                     Modify this file to begin building your application with ReactronBase.
                 </p>
