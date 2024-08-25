@@ -27,13 +27,13 @@ ReactronBase is a boilerplate project that combines modern web technologies and 
 - **Tailwind CSS**  
   ![Tailwind CSS Logo](https://seeklogo.com/images/T/tailwind-css-logo-5AD4175897-seeklogo.com.png)
 - **Electron**  
-  ![Electron Logo](https://download.logo.wine/logo/Electron_(software_framework)/Electron_(software_framework)-Logo.wine.png)
+  ![Electron Logo](https://github.com/devicons/devicon/raw/master/icons/electron/electron-original.svg)
 - **SCSS**  
   ![SCSS Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png)
 - **TypeScript**  
-  ![TypeScript Logo](https://w7.pngwing.com/pngs/74/362/png-transparent-typescript-plain-logo-icon-thumbnail.png)
+  ![TypeScript Logo](https://github.com/devicons/devicon/raw/master/icons/typescript/typescript-original.svg)
 - **Prisma**  
-  ![Prisma Logo](https://w7.pngwing.com/pngs/130/82/png-transparent-prisma-hd-logo.png)
+  ![Prisma Logo](https://github.com/devicons/devicon/raw/master/icons/prisma/prisma-original.svg)
 
 ## Project Structure
 
