@@ -1,6 +1,7 @@
 
 # ReactronBase
 
+
 ![ReactronBase Logo](/public/assets/images/icon.png)
 
 ReactronBase is a boilerplate project that combines modern web technologies and frameworks to provide a robust starting point for web and desktop applications. This project integrates React, Tailwind CSS, Electron, SCSS, TypeScript, and Prisma to deliver a powerful development environment for creating scalable applications.
@@ -102,7 +103,7 @@ To build the development server and run the Electron app:
 ```bash
 npm run build
 ```
-
+![ReactronBase Logo](/public/assets/images/build.png)
 ### 4. Start the Development Server on Web
 
 To start the development server and run the browser:
@@ -110,6 +111,7 @@ To start the development server and run the browser:
 ```bash
 npm start
 ```
+![ReactronBase Entry](/public/assets/images/start.png)
 ![ReactronBase Entry](/public/assets/images/entry.png)
 
 ### 5. Start the Development Server on Electron
@@ -119,6 +121,7 @@ To start the development server and run the Electron app:
 ```bash
 npm run electron
 ```
+![ReactronBase Entry](/public/assets/images/electron.png)
 ![ReactronBase Entry](/public/assets/images/electronEntry.png)
 
 ## Frontend Development
