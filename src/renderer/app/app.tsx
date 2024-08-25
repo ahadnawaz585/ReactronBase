@@ -1,9 +1,11 @@
 import React from 'react';
 import './app.style.scss'; // Ensure SCSS is compiled and included
 import icon from '../../../public/assets/images/icon.png'; // Adjust the path as needed
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 const App = () => {
     return (
+        
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
             <div className="bg-white p-8 rounded-lg shadow-lg max-w-lg mx-auto text-center">
                 <div className='header'>
