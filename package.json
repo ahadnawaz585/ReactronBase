@@ -1,6 +1,6 @@
 {
-  "name": "reactronbase",
-  "version": "1.0.0",
+  "name": "reactron-base",
+  "version": "1.0.1",
   "main": "dist/main/index.js",
   "scripts": {
     "build:main": "tsc src/main/index.ts --outDir dist/main",
