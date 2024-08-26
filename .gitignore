@@ -1,5 +1,14 @@
-node_modules
-# Keep environment variables out of version control
+# Node modules directory
+node_modules/
+
+# Environment variables file
 .env
-dist
-Reactron Base-win32-x64
+
+# Build output directory
+dist/
+
+# Electron build output directory
+Reactron Base-win32-x64/
+
+# Other specific build directories if needed
+# (Add any other paths or files you want to ignore here)

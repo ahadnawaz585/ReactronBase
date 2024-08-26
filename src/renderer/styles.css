@@ -4,9 +4,13 @@
 
 @font-face {
     font-family: 'Titillium Web';
-    src: url('/public/assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf') format('truetype');
+    src: url('../assets/fonts/Titillium_Web/TitilliumWeb-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+* {
+    /* border: 1px solid red; */
 }
 
 body,

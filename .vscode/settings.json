@@ -8,5 +8,6 @@
         "**/Thumbs.db": true,
         "**/*.js": false
     },
-    "hide-files.files": []
+    "hide-files.files": [],
+    "compile-hero.disable-compile-files-on-did-save-code": false
 }

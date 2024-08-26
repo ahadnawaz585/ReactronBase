@@ -1,20 +1,20 @@
 
-# ReactronBase
 
+# ReactronBase 🚀
 
-![ReactronBase Logo](/public/assets/images/icon.png)
+![ReactronBase Logo](/src/assets/images/icon.png)
 
-ReactronBase is a boilerplate project that combines modern web technologies and frameworks to provide a robust starting point for web and desktop applications. This project integrates React, Tailwind CSS, Electron, SCSS, TypeScript, and Prisma to deliver a powerful development environment for creating scalable applications.
+ReactronBase is a robust boilerplate project designed for modern web and desktop applications. It integrates a variety of technologies including React, Tailwind CSS, Electron, SCSS, TypeScript, and Prisma, providing a solid foundation for building scalable applications.
 
 ## Table of Contents
 
 - [Technologies](#technologies)
 - [Project Structure](#project-structure)
 - [Getting Started](#getting-started)
+- [Development Commands](#development-commands)
 - [Frontend Development](#frontend-development)
 - [Backend Development](#backend-development)
 - [Database Schema](#database-schema)
-- [Commands](#commands)
 - [Contributing](#contributing)
 - [License](#license)
 - [Upcoming Features](#upcoming-features)
@@ -24,20 +24,25 @@ ReactronBase is a boilerplate project that combines modern web technologies and 
 
 - **React**  
   ![React Logo](https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png)
+
 - **Tailwind CSS**  
   ![Tailwind CSS Logo](https://seeklogo.com/images/T/tailwind-css-logo-5AD4175897-seeklogo.com.png)
+
 - **Electron**  
   ![Electron Logo](https://github.com/devicons/devicon/raw/master/icons/electron/electron-original.svg)
+
 - **SCSS**  
   ![SCSS Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png)
+
 - **TypeScript**  
   ![TypeScript Logo](https://github.com/devicons/devicon/raw/master/icons/typescript/typescript-original.svg)
+
 - **Prisma**  
   ![Prisma Logo](https://github.com/devicons/devicon/raw/master/icons/prisma/prisma-original.svg)
 
 ## Project Structure
 
-Here is an overview of the project structure:
+Here’s an overview of the project structure:
 
 ```
 ReactronBase/
@@ -75,7 +80,7 @@ ReactronBase/
 │   │   └── styles.css
 │   ├── types/                     # TypeScript type definitions
 │   │   └── images.d.ts
-│   └── Utils/                     # Utility functions
+│   └── utils/                     # Utility functions
 └── webpack.config.js              # Webpack configuration
 ```
 
@@ -96,46 +101,83 @@ cd ReactronBase
 npm install
 ```
 
-### 3. Build the Development 
+### 3. Create a New Project
 
-To build the development server and run the Electron app:
+You can quickly set up a new project using the command:
+
+```bash
+npx create-electronbase <app-name>
+```
+
+Replace `<app-name>` with the name of your new application. This command will scaffold a new project with ReactronBase as the starting point.
+
+### 4. Build the Project
+
+To build the project for production, including both renderer and main processes:
 
 ```bash
 npm run build
 ```
-![ReactronBase Logo](/public/assets/images/build.png)
-### 4. Start the Development Server on Web
 
-To start the development server and run the browser:
+This command performs two key tasks:
+
+- **`build:renderer`**: Uses Vite to build the frontend assets. This includes transforming and bundling your React components and styles into optimized static files.
+  
+- **`build:main`**: Compiles TypeScript files for the Electron main process using `tsc` (TypeScript Compiler), outputting the result into the `dist/main` directory.
+
+### 5. Start the Development Server for Web
+
+To start the development server and view the app in your browser:
 
 ```bash
 npm start
 ```
-![ReactronBase Entry](/public/assets/images/start.png)
-![ReactronBase Entry](/public/assets/images/entry.png)
 
-### 5. Start the Development Server on Electron
+This command will serve the frontend files on `localhost:9000` and open your default web browser to this address.
+
+### 6. Start the Development Server for Electron
 
 To start the development server and run the Electron app:
 
 ```bash
 npm run electron
 ```
-![ReactronBase Entry](/public/assets/images/electron.png)
-![ReactronBase Entry](/public/assets/images/electronEntry.png)
+
+This command launches the Electron application, integrating the built React frontend within a desktop window.
+
+## Development Commands
+
+Here are some useful commands for development and production:
+
+- **Start Development Server:** `npm run dev`  
+  Runs both Vite for the web and Electron for the desktop in development mode.
+
+- **Build Project:** `npm run build`  
+  Builds both the frontend and Electron main process for production.
+
+- **Start Electron App:** `npm run electron`  
+  Runs the Electron app with the built files.
+
+- **Package Electron App:** `npm run package`  
+  Packages the Electron app for Windows (`win32`) and x64 architecture, including Asar packaging.
+
+- **Reset Database:** `npm run reset`  
+  Resets the database to its initial state.
+
+- **Seed Database:** `npm run seed`  
+  Seeds the database with initial data.
+
+- **Force-Seed Database:** `npm run force-seed`  
+  Resets and seeds the database with initial data.
 
 ## Frontend Development
 
-The frontend code is located in the `src/renderer` directory, with the main entry point being `app.tsx` in `src/renderer/app`.
+The frontend code is located in the `src/renderer` directory. The main entry point is `app.tsx` in `src/renderer/app`.
 
-### Development Commands
+### Development Commands for Frontend
 
 - **Compile SCSS:** SCSS files are compiled to CSS as part of the build process.
-- **Build Frontend:** Use Webpack to bundle the frontend assets.
-
-```bash
-npm run build
-```
+- **Build Frontend:** Use `npm run build:renderer` to bundle the frontend assets using Vite.
 
 ## Backend Development
 
@@ -149,34 +191,38 @@ The database schema is defined in `prisma/schema.prisma`. To update the schema, 
 npx prisma migrate dev
 ```
 
-### Seed|Reset the Database
+### Seed or Reset the Database
 
-Navigate to the `src/db` directory and run the following commands to reset the database and seed the database:
+To manage your database:
 
-```bash
-npm run reset  # Reset the database
-npm run seed   # Seed the database with initial data
-npm run force-seed   # First reset the database and then seed it with initial data
-```
+- **Reset the Database:** 
 
-## Commands
+  ```bash
+  npm run reset
+  ```
 
-Here are some useful commands for development and production:
+- **Seed the Database:**
 
-- **Start Development Server:** `npm start`
-- **Build Project:** `npm run build`
-- **Reset Database:** `npm run reset`
-- **Seed Database:** `npm run seed`
-- **Force-Seed Database:** `npm run force-seed`
+  ```bash
+  npm run seed
+  ```
+
+- **Force-Seed the Database:** 
+
+  ```bash
+  npm run force-seed
+  ```
 
 ## Contributing
 
-Contributions to ReactronBase are welcome! Please follow these guidelines for contributing:
+We welcome contributions to ReactronBase! To contribute:
 
 1. Fork the repository.
 2. Create a new branch for your feature or bugfix.
 3. Make your changes and commit them.
 4. Open a pull request with a clear description of your changes.
+
+If you find this project useful, please give it a ⭐️ star on GitHub!
 
 ## License
 
@@ -184,15 +230,13 @@ ReactronBase is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Upcoming Features
 
-We are working on several exciting features for ReactronBase, including:
+We are working on several exciting features, including:
 
-- **Electron Packaging**: Easily package your Electron application for distribution.
+- **Electron Packaging**: Simplified packaging of your Electron application for distribution.
 - **Enhanced User Interface**: Additional UI components and improvements.
-- **Advanced Configuration**: More options for customizing the development and build processes.
+- **Advanced Configuration**: More options for customizing development and build processes.
 
 ## Example Apps
 
-Some Example Apps will be added soon to help user check the design pattern !
-
-Feel free to check them out for inspiration or to see how ReactronBase can be used in real-world scenarios!
+Check out our upcoming example apps to see ReactronBase in action and get inspiration for your own projects!
 
