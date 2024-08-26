@@ -1,5 +1,5 @@
 {
-  "name": "Reactron Base",
+  "name": "reactronbase",
   "version": "1.0.0",
   "main": "dist/main/index.js",
   "scripts": {

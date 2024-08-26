@@ -106,7 +106,7 @@ npm install
 You can quickly set up a new project using the command:
 
 ```bash
-npx create-electronbase <app-name>
+npx create-reactronbase <app-name>
 ```
 
 Replace `<app-name>` with the name of your new application. This command will scaffold a new project with ReactronBase as the starting point.
