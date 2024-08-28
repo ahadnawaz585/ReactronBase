@@ -6,9 +6,14 @@ node_modules/
 
 # Build output directory
 dist/
+reactron-base-win32-x64/
 
 # Electron build output directory
 Reactron Base-win32-x64/
+reactron-base-win32-x64/
+reactron-base-win32-x64/resources/app.asar
+reactron-base-win32-x64/reactron-base.exe
+
 
 # Other specific build directories if needed
 # (Add any other paths or files you want to ignore here)

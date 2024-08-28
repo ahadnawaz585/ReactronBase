@@ -81,7 +81,7 @@ ReactronBase/
 │   ├── types/                     # TypeScript type definitions
 │   │   └── images.d.ts
 │   └── utils/                     # Utility functions
-└── webpack.config.js              # Webpack configuration
+└── vite.config.js              # vite configuration
 ```
 
 ## Getting Started
@@ -143,7 +143,9 @@ To start the development server and run the Electron app:
 npm run electron
 ```
 
-This command launches the Electron application, integrating the built React frontend within a desktop window.
+This command launches the Electron application, integrating the built React frontend within a desktop window.You can check this package also on [npm](https://www.npmjs.com/package/reactron-base)
+
+
 
 ## Development Commands
 
