@@ -1,244 +1,269 @@
 
+# ReactronBase
 
-# ReactronBase 🚀
+ReactronBase is a boilerplate for building desktop applications using Electron and Vite. This template sets up a development environment with TypeScript, Tailwind CSS, and Electron, providing essential configurations for building and packaging your application.
 
-![ReactronBase Logo](/src/assets/images/icon.png)
+## 📁 Project Structure
 
-ReactronBase is a robust boilerplate project designed for modern web and desktop applications. It integrates a variety of technologies including React, Tailwind CSS, Electron, SCSS, TypeScript, and Prisma, providing a solid foundation for building scalable applications.
-
-## Table of Contents
-
-- [Technologies](#technologies)
-- [Project Structure](#project-structure)
-- [Getting Started](#getting-started)
-- [Development Commands](#development-commands)
-- [Frontend Development](#frontend-development)
-- [Backend Development](#backend-development)
-- [Database Schema](#database-schema)
-- [Contributing](#contributing)
-- [License](#license)
-- [Upcoming Features](#upcoming-features)
-- [Example Apps](#example-apps)
-
-## Technologies
-
-- **React**  
-  ![React Logo](https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png)
-
-- **Tailwind CSS**  
-  ![Tailwind CSS Logo](https://seeklogo.com/images/T/tailwind-css-logo-5AD4175897-seeklogo.com.png)
-
-- **Electron**  
-  ![Electron Logo](https://github.com/devicons/devicon/raw/master/icons/electron/electron-original.svg)
-
-- **SCSS**  
-  ![SCSS Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png)
-
-- **TypeScript**  
-  ![TypeScript Logo](https://github.com/devicons/devicon/raw/master/icons/typescript/typescript-original.svg)
-
-- **Prisma**  
-  ![Prisma Logo](https://github.com/devicons/devicon/raw/master/icons/prisma/prisma-original.svg)
-
-## Project Structure
-
-Here’s an overview of the project structure:
-
-```
-ReactronBase/
-│
-├── dist/                          # Compiled output
-├── node_modules/                  # Node.js dependencies
-├── package.json                   # Project metadata and dependencies
-├── package-lock.json              # Exact versions of dependencies
-├── postcss.config.js              # PostCSS configuration
-├── prisma/                        # Prisma schema and configuration
-│   └── schema.prisma
-├── public/                        # Public assets
-│   └── assets/
-│       └── images/
-│           └── logo.png
-├── src/                           # Source code
-│   ├── db/                        # Database related files
-│   │   ├── helper/
-│   │   ├── models/
-│   │   ├── reset.js
-│   │   ├── reset.ts
-│   │   ├── seeder.js
-│   │   └── seeder.ts
-│   ├── main/                      # Main process files for Electron
-│   │   ├── index.ts
-│   │   └── preload.ts
-│   ├── renderer/                  # Renderer process files
-│   │   ├── app/
-│   │   │   ├── components/
-│   │   │   ├── modules/
-│   │   │   └── pages/
-│   │   ├── index.html
-│   │   ├── index.scss
-│   │   ├── index.tsx
-│   │   └── styles.css
-│   ├── types/                     # TypeScript type definitions
-│   │   └── images.d.ts
-│   └── utils/                     # Utility functions
-└── vite.config.js              # vite configuration
+```plaintext
+.
+├── db/                     # Directory containing database files
+│   └── dev.db              # SQLite database file
+├── dist/                   # Compiled output directory for main process
+├── libs/                   # Directory for native libraries (e.g., SQLite)
+│   └── sqlite3.dll         # SQLite library for Windows
+├── node_modules/           # Node.js dependencies
+├── public/                 # Static assets (e.g., icons, images)
+├── reactron-base-win32-x64 # Packaged application for Windows (x64)
+├── src/                    # Source files
+│   ├── assets/             # Assets like fonts and images
+│   ├── libs/               # Source files for additional libraries
+│   ├── main/               # Main process TypeScript files
+│   ├── renderer/           # Renderer process TypeScript files
+│   ├── types/              # TypeScript type definitions
+│   └── styles.css          # Global styles
+├── electron-windows-store-config.json # Configuration for Windows Store packaging
+├── license.md              # License information
+├── package.json            # Project metadata and scripts
+├── package-lock.json       # Dependency lock file
+├── postcss.config.js       # PostCSS configuration
+├── readme.md               # Project overview and documentation
+├── tailwind.config.js      # Tailwind CSS configuration
+├── tsconfig.json           # TypeScript configuration
+└── vite.config.ts          # Vite configuration
 ```
 
-## Getting Started
+## 🚀 Getting Started
 
 To get started with ReactronBase, follow these steps:
 
-### 1. Clone the Repository
+### 1. Create a New Application
 
-```bash
-git clone https://github.com/your-username/ReactronBase.git
-cd ReactronBase
-```
-
-### 2. Install Dependencies
-
-```bash
-npm install
-```
-
-### 3. Create a New Project
-
-You can quickly set up a new project using the command:
+To quickly set up a new ReactronBase application, use the command-line tool:
 
 ```bash
 npx create-reactronbase <app-name>
 ```
 
-Replace `<app-name>` with the name of your new application. This command will scaffold a new project with ReactronBase as the starting point.
+Replace `<app-name>` with your desired application name. This will:
+- Create a new directory with the specified name.
+- Set up the project with the necessary dependencies and configuration.
 
-### 4. Build the Project
+### 2. Clone the Repository (Alternative Method)
 
-To build the project for production, including both renderer and main processes:
+If you prefer to clone the repository and set up manually:
+
+```bash
+git clone https://github.com/ahadnawaz585/ReactronBase.git
+cd ReactronBase
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Development Mode
+
+To start the development server and Electron application simultaneously:
+
+```bash
+npm run dev
+```
+
+This will:
+- Start the Vite development server for the renderer process.
+- Launch Electron with the main process.
+
+### 5. Build the Application
+
+To build the application for production:
 
 ```bash
 npm run build
 ```
 
-This command performs two key tasks:
+This command will:
+- Compile TypeScript files for the main process into the `dist/main` directory.
+- Bundle and minify renderer process files using Vite.
 
-- **`build:renderer`**: Uses Vite to build the frontend assets. This includes transforming and bundling your React components and styles into optimized static files.
+### 6. Package the Application
+
+To package the application for Windows (x64):
+
+```bash
+npm run package
+```
+
+This will create a packaged application in the `reactron-base-win32-x64` directory. It includes:
+- The built renderer and main processes.
+- The SQLite library (`libs/sqlite3.dll`).
+- The SQLite database file (`db/dev.db`).
+
+### 7. Rebuild SQLite Library
+
+If you need to rebuild the SQLite library for a different version or configuration:
+
+```bash
+npm run rebuild-sql
+```
+
+## 🛠️ Development Tools
+
+- **Vite**: Fast build tool and development server for the renderer process.
+- **Electron**: Framework for building cross-platform desktop applications with web technologies.
+- **TypeScript**: Adds static types to JavaScript for improved developer experience.
+- **Tailwind CSS**: Utility-first CSS framework for building modern UIs.
+
+## 💡 Tips and Tricks
+
+- **Database Location**: On Windows, you can find your application's database file in `%appdata%`. Navigate to the folder named after your application to locate `dev.db`.
+- **Debugging**: Use Chrome DevTools for debugging the renderer process by launching Electron with `DEBUG=true`.
+- **Better Development Environment**: Use `concurrently` or `npm-run-all` to run multiple scripts simultaneously (e.g., Vite and Electron). Install them using:
+
+  ```bash
+  npm install concurrently
+  ```
+
+  Update `package.json` scripts:
+
+  ```json
+  "scripts": {
+    "start": "concurrently \"npm run dev:renderer\" \"npm run dev:main\"",
+    "dev:renderer": "vite",
+    "dev:main": "electron .",
+    "build": "vite build && tsc",
+    "package": "electron-packager . --platform=win32 --arch=x64",
+    "rebuild-sql": "node rebuild-sql.js"
+  }
+  ```
+
+## 🎨 Customizing the Application
+
+- **Styles**: Modify `src/renderer/styles.css` to adjust the appearance of your application.
+- **Configuration**: Update `electron-windows-store-config.json` for custom Windows Store packaging settings.
+
+## ❓ FAQ
+
+**Q: What is ReactronBase?**
+
+A: ReactronBase is a boilerplate for creating desktop applications using Electron and Vite. It provides a ready-to-use setup with TypeScript and Tailwind CSS.
+
+**Q: How do I add new features to my application?**
+
+A: You can add new features by modifying the files in the `src/` directory. For example, update `src/renderer` for UI changes or `src/main` for backend logic.
+
+**Q: How can I update the SQLite library?**
+
+A: To update the SQLite library, modify the `libs/` directory with the new library version and rebuild it using `npm run rebuild-sql`.
+
+**Q: How do I seed or reset the database?**
+
+A: Use the provided seeding and resetting methods in `src/main` or dedicated scripts. Refer to the [Seeding and Resetting the Database](#seeding-and-resetting-the-database) section for detailed instructions.
+
+**Q: Where can I find more information about Electron and Vite?**
+
+A: Refer to the [Electron Documentation](https://www.electronjs.org/docs) and the [Vite Documentation](https://vitejs.dev/) for more information.
+
+## 🛠️ Seeding and Resetting the Database
+
+### Seeding the Database
+
+To seed your database with initial data, create a seeding script. You can add this script to the `src/main` directory or as a standalone script in your project.
+
+Example seeding script (`seed.ts`):
+
+```typescript
+import sqlite3 from 'sqlite3';
+import { open } from 'sqlite';
+
+async function seedDatabase() {
+  const db = await open({
+    filename: 'db/dev.db',
+    driver: sqlite3.Database,
+  });
+
+  // Add seed data
+  await db.run('INSERT INTO users (name, email) VALUES (?, ?)', ['John Doe', 'john@example.com']);
   
-- **`build:main`**: Compiles TypeScript files for the Electron main process using `tsc` (TypeScript Compiler), outputting the result into the `dist/main` directory.
+  console.log('Database seeded successfully.');
+  await db.close();
+}
 
-### 5. Start the Development Server for Web
-
-To start the development server and view the app in your browser:
-
-```bash
-npm start
+seedDatabase().catch((error) => console.error('Failed to seed database:', error));
 ```
 
-This command will serve the frontend files on `localhost:9000` and open your default web browser to this address.
+Run the seeding script as part of your application setup or manually execute it.
 
-### 6. Start the Development Server for Electron
+### Resetting the Database
 
-To start the development server and run the Electron app:
+To reset your database, you can delete the existing `db/dev.db` file and let your application recreate it. This can be done manually or through a script.
 
-```bash
-npm run electron
+Example reset script (`reset-db.ts`):
+
+```typescript
+import { unlink } from 'fs';
+import { open } from 'sqlite';
+import sqlite3 from 'sqlite3';
+
+async function resetDatabase() {
+  try {
+    // Delete the existing database file
+    unlink('db/dev.db', async (err) => {
+      if (err) throw err;
+
+      // Recreate the database and initialize schema
+      const db = await open({
+        filename: 'db/dev.db',
+        driver: sqlite3.Database,
+      });
+
+      // Initialize schema
+      await db.run('CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT, email TEXT)');
+      
+      console.log('Database reset and schema initialized.');
+      await db.close();
+    });
+  } catch (error) {
+    console.error('Failed to reset database:', error);
+  }
+}
+
+resetDatabase();
 ```
 
-This command launches the Electron application, integrating the built React frontend within a desktop window.You can check this package also on [npm](https://www.npmjs.com/package/reactron-base)
+## 🚀 Upcoming Features
 
+- **Enhanced ORM Integration**: Research and integrate an ORM (Object-Relational Mapping) library for improved database interactions. Options include [TypeORM](https://typeorm.io/), [Sequelize](https://sequelize.org/), or creating a custom base model for better data management.
 
+- **Advanced Seeding and Migration**: Develop advanced seeding capabilities and migration scripts for managing database changes and updates.
 
-## Development Commands
+- **Improved Development Environment**: Implement features to streamline development workflows, such as automated testing setups, enhanced build processes, and integrated debugging tools.
 
-Here are some useful commands for development and production:
+- **Additional Configuration Options**: Enhance configuration flexibility, including support for additional database engines and deployment platforms.
 
-- **Start Development Server:** `npm run dev`  
-  Runs both Vite for the web and Electron for the desktop in development mode.
+For updates on these upcoming features, follow the project on [GitHub](https://github.com/ahadnawaz585/ReactronBase) and participate in discussions and feature requests.
 
-- **Build Project:** `npm run build`  
-  Builds both the frontend and Electron main process for production.
+## 💬 Discussions
 
-- **Start Electron App:** `npm run electron`  
-  Runs the Electron app with the built files.
+For discussions, feature requests, and community support, please visit the [GitHub Discussions page](https://github.com/ahadnawaz585/ReactronBase/discussions). Here, you can engage with other users and contributors, share ideas, and get help with any issues you encounter.
 
-- **Package Electron App:** `npm run package`  
-  Packages the Electron app for Windows (`win32`) and x64 architecture, including Asar packaging.
+##
 
-- **Reset Database:** `npm run reset`  
-  Resets the database to its initial state.
+ 📄 License
 
-- **Seed Database:** `npm run seed`  
-  Seeds the database with initial data.
+This project is licensed under the MIT License. See the [license.md](license.md) file for details.
 
-- **Force-Seed Database:** `npm run force-seed`  
-  Resets and seeds the database with initial data.
+## 📚 Documentation
 
-## Frontend Development
+For more details about the technologies used in this project, refer to the following resources:
+- [Electron Documentation](https://www.electronjs.org/docs)
+- [Vite Documentation](https://vitejs.dev/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
 
-The frontend code is located in the `src/renderer` directory. The main entry point is `app.tsx` in `src/renderer/app`.
+## 📞 Contact
 
-### Development Commands for Frontend
-
-- **Compile SCSS:** SCSS files are compiled to CSS as part of the build process.
-- **Build Frontend:** Use `npm run build:renderer` to bundle the frontend assets using Vite.
-
-## Backend Development
-
-The backend code, including database operations and models, is located in the `src/db` directory.
-
-### Database Schema
-
-The database schema is defined in `prisma/schema.prisma`. To update the schema, modify this file and run:
-
-```bash
-npx prisma migrate dev
-```
-
-### Seed or Reset the Database
-
-To manage your database:
-
-- **Reset the Database:** 
-
-  ```bash
-  npm run reset
-  ```
-
-- **Seed the Database:**
-
-  ```bash
-  npm run seed
-  ```
-
-- **Force-Seed the Database:** 
-
-  ```bash
-  npm run force-seed
-  ```
-
-## Contributing
-
-We welcome contributions to ReactronBase! To contribute:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bugfix.
-3. Make your changes and commit them.
-4. Open a pull request with a clear description of your changes.
-
-If you find this project useful, please give it a ⭐️ star on GitHub!
-
-## License
-
-ReactronBase is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-## Upcoming Features
-
-We are working on several exciting features, including:
-
-- **Electron Packaging**: Simplified packaging of your Electron application for distribution.
-- **Enhanced User Interface**: Additional UI components and improvements.
-- **Advanced Configuration**: More options for customizing development and build processes.
-
-## Example Apps
-
-Check out our upcoming example apps to see ReactronBase in action and get inspiration for your own projects!
+For support or questions, please open an issue on [GitHub](https://github.com/ahadnawaz585/ReactronBase/issues) or contact the project maintainers directly.
 

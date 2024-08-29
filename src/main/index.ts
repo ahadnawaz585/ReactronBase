@@ -3,7 +3,7 @@ import * as path from "path";
 import knex from "knex";
 
 const isDevelopment = process.env.NODE_ENV === "development";
-console.log(app.getAppPath(), "resources", "dev.db");
+console.log(app.getPath('userData'));
 const dbPath = isDevelopment
   ? path.resolve(__dirname, "..", "..", "db", "dev.db")
   : path.join(app.getPath('userData'), "dev.db");
