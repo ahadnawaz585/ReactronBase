@@ -3,12 +3,13 @@
   "version": "1.0.1",
   "main": "dist/main/index.js",
   "scripts": {
-    "build:main": "tsc src/main/index.ts --outDir dist/main",
+    "build:main": "tsc src/main/index.ts src/main/preload.ts --outDir dist/main",
     "build:renderer": "vite build",
     "build": "npm run build:renderer && npm run build:main",
     "dev": "cross-env NODE_ENV=development concurrently \"vite\" \"electron .\"",
-    "package": "electron-packager . --platform=win32 --arch=x64 --asar --extra-resource=dist/libs/sqlite3.dll",
-    "electron": "electron ./dist/main/index.js"
+    "package": "electron-packager . --platform=win32 --arch=x64 --overwrite --asar --extra-resource=./libs/sqlite3.dll --extra-resource=./db/dev.db",
+    "electron": " electron ./dist/main/index.js ",
+    "rebuild-sql": "electron-rebuild -f -w sqlite3"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +23,7 @@
     "@babel/plugin-transform-runtime": "^7.25.4",
     "@babel/preset-env": "^7.25.4",
     "@babel/preset-react": "^7.24.7",
-    "@types/node": "^22.5.0",
+    "@types/node": "^22.5.1",
     "@types/react": "^18.3.4",
     "@types/react-dom": "^18.3.0",
     "@types/react-router": "^5.1.20",
@@ -51,10 +52,13 @@
     "@electron/remote": "^2.1.2",
     "@prisma/client": "^5.18.0",
     "electron-is-dev": "^3.0.1",
+    "electron-rebuild": "^3.2.9",
+    "knex": "^3.1.0",
     "postcss": "^8.4.41",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-markdown": "^9.0.1",
-    "react-router-dom": "^6.26.1"
+    "react-router-dom": "^6.26.1",
+    "sqlite3": "^5.1.7"
   }
 }

@@ -6,6 +6,7 @@ import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import ReadMe from './app/pages/ReadMe/readMe';
 
 const Main = () => (
+
   <Router>
     <Routes>
       <Route path="/" element={<App />} />
