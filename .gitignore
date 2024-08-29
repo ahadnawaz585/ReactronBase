@@ -7,7 +7,7 @@ node_modules/
 # Build output directory
 dist/
 reactron-base-win32-x64/
-
+.vscode/
 # Electron build output directory
 Reactron Base-win32-x64/
 reactron-base-win32-x64/
