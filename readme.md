@@ -1,7 +1,8 @@
 
+
 # ReactronBase
 
-ReactronBase is a boilerplate for building desktop applications using Electron and Vite. This template sets up a development environment with TypeScript, Tailwind CSS, and Electron, providing essential configurations for building and packaging your application.
+ReactronBase is a boilerplate for building desktop applications using Electron and Vite. This template sets up a development environment with TypeScript, Tailwind CSS, and Electron, providing essential configurations for building and packaging your application. It is designed to accelerate development by offering a streamlined setup, rapid build processes, and powerful tooling for both the main and renderer processes.
 
 ## 📁 Project Structure
 
@@ -111,10 +112,10 @@ npm run rebuild-sql
 
 ## 🛠️ Development Tools
 
-- **Vite**: Fast build tool and development server for the renderer process.
-- **Electron**: Framework for building cross-platform desktop applications with web technologies.
-- **TypeScript**: Adds static types to JavaScript for improved developer experience.
-- **Tailwind CSS**: Utility-first CSS framework for building modern UIs.
+- **Vite**: Fast build tool and development server for the renderer process, providing a modern and efficient development experience.
+- **Electron**: Framework for building cross-platform desktop applications with web technologies, enabling seamless integration between web and native functionalities.
+- **TypeScript**: Adds static types to JavaScript for improved developer experience and robust code quality.
+- **Tailwind CSS**: Utility-first CSS framework for building modern UIs, allowing rapid design and customization.
 
 ## 💡 Tips and Tricks
 
@@ -141,8 +142,35 @@ npm run rebuild-sql
 
 ## 🎨 Customizing the Application
 
-- **Styles**: Modify `src/renderer/styles.css` to adjust the appearance of your application.
+- **Styles**: Modify `src/renderer/styles.css` to adjust the appearance of your application. Utilize Tailwind CSS for utility-first styling.
 - **Configuration**: Update `electron-windows-store-config.json` for custom Windows Store packaging settings.
+
+## 📦 Creating Components and Pages
+
+### Creating Components
+
+To create a new component, run:
+
+```bash
+npm run create:component <component-name>
+```
+
+Replace `<component-name>` with the desired name for your component. This command will:
+- Generate a new component file in `src/renderer/components/`.
+- Create a corresponding SCSS file for styling.
+
+### Creating Pages
+
+To create a new page, run:
+
+```bash
+npm run create:page <page-name>
+```
+
+Replace `<page-name>` with the desired name for your page. This command will:
+- Create a new folder in `src/renderer/pages/` with the page name.
+- Generate a TypeScript file and SCSS file for the page.
+- Automatically update your routing configuration to include the new page.
 
 ## ❓ FAQ
 
@@ -175,62 +203,43 @@ To seed your database with initial data, create a seeding script. You can add th
 Example seeding script (`seed.ts`):
 
 ```typescript
-import sqlite3 from 'sqlite3';
-import { open } from 'sqlite';
+import { Database } from 'sqlite3';
 
-async function seedDatabase() {
-  const db = await open({
-    filename: 'db/dev.db',
-    driver: sqlite3.Database,
-  });
+const db = new Database('db/dev.db');
 
-  // Add seed data
-  await db.run('INSERT INTO users (name, email) VALUES (?, ?)', ['John Doe', 'john@example.com']);
+db.serialize(() => {
+  db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT, email TEXT)');
   
-  console.log('Database seeded successfully.');
-  await db.close();
-}
+  const stmt = db.prepare('INSERT INTO users (name, email) VALUES (?, ?)');
+  stmt.run('John Doe', 'john@example.com');
+  stmt.finalize();
+});
 
-seedDatabase().catch((error) => console.error('Failed to seed database:', error));
+db.close();
 ```
 
-Run the seeding script as part of your application setup or manually execute it.
+Run the seeding script:
+
+```bash
+npx ts-node src/main/seed.ts
+```
 
 ### Resetting the Database
 
-To reset your database, you can delete the existing `db/dev.db` file and let your application recreate it. This can be done manually or through a script.
-
-Example reset script (`reset-db.ts`):
+To reset your database, you can drop existing tables and re-run the seeding script. Modify your seeding script to include table dropping commands:
 
 ```typescript
-import { unlink } from 'fs';
-import { open } from 'sqlite';
-import sqlite3 from 'sqlite3';
+db.serialize(() => {
+  db.run('DROP TABLE IF EXISTS users');
+  db.run('CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT, email TEXT)');
+  // Re-run seeding
+});
+```
 
-async function resetDatabase() {
-  try {
-    // Delete the existing database file
-    unlink('db/dev.db', async (err) => {
-      if (err) throw err;
+Run the script to reset the database:
 
-      // Recreate the database and initialize schema
-      const db = await open({
-        filename: 'db/dev.db',
-        driver: sqlite3.Database,
-      });
-
-      // Initialize schema
-      await db.run('CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT, email TEXT)');
-      
-      console.log('Database reset and schema initialized.');
-      await db.close();
-    });
-  } catch (error) {
-    console.error('Failed to reset database:', error);
-  }
-}
-
-resetDatabase();
+```bash
+npx ts-node src/main/seed.ts
 ```
 
 ## 🚀 Upcoming Features
