@@ -194,6 +194,10 @@ A: Use the provided seeding and resetting methods in `src/main` or dedicated scr
 
 A: Refer to the [Electron Documentation](https://www.electronjs.org/docs) and the [Vite Documentation](https://vitejs.dev/) for more information.
 
+Here's the updated section for your `README.md` file, including instructions for running Knex migrations:
+
+---
+
 ## 🛠️ Seeding and Resetting the Database
 
 ### Seeding the Database
@@ -241,6 +245,50 @@ Run the script to reset the database:
 ```bash
 npx ts-node src/main/seed.ts
 ```
+
+### Running Knex Migrations
+
+To manage your database schema with Knex, use migrations. Follow these steps:
+
+1. **Create a Migration File**
+
+   Create a new migration file to define schema changes:
+
+   ```bash
+   npx knex migrate:make creating_schema
+   ```
+
+   This will generate a file like `YYYYMMDDHHMMSS_creating_schema.js` inside the `migrations` directory.
+
+2. **Define Your Schema in the Migration File**
+
+   Open the generated migration file and define your schema:
+
+   ```javascript
+   // migrations/YYYYMMDDHHMMSS_creating_schema.js
+   exports.up = function (knex) {
+     return knex.schema.createTable('example_table', (table) => {
+       table.increments('id').primary();
+       table.string('name').notNullable();
+       table.timestamps(true, true);
+     });
+   };
+
+   exports.down = function (knex) {
+     return knex.schema.dropTable('example_table');
+   };
+   ```
+
+3. **Run the Migrations**
+
+   Apply the migrations to your database:
+
+   ```bash
+   npx knex migrate:latest
+   ```
+
+   This command will execute all pending migrations and update your database schema.
+
 
 ## 🚀 Upcoming Features
 
