@@ -1,6 +1,6 @@
 {
   "name": "reactron-base",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/main/index.js",
   "scripts": {
     "build:main": "tsc src/main/index.ts src/main/preload.ts --outDir dist/main",
@@ -9,7 +9,10 @@
     "dev": "cross-env NODE_ENV=development concurrently \"vite\" \"electron .\"",
     "package": "electron-packager . --platform=win32 --arch=x64 --overwrite --asar --extra-resource=./libs/sqlite3.dll --extra-resource=./db/dev.db",
     "electron": " electron ./dist/main/index.js ",
-    "rebuild-sql": "electron-rebuild -f -w sqlite3"
+    "rebuild-sql": "electron-rebuild -f -w sqlite3",
+    "create": "node ./libs/create.js",
+    "create:page": "npm run create -- page",
+    "create:component": "npm run create -- component"
   },
   "keywords": [],
   "author": "",
