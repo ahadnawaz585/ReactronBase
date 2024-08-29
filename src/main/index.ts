@@ -2,21 +2,22 @@ import { app, BrowserWindow, ipcMain } from "electron";
 import * as path from "path";
 import knex from "knex";
 
-const dbPath =
-  path.resolve(__dirname, "..", "..", "db", "dev.db") ||
-  path.resolve(app.getAppPath(), "..","resources", "dev.db");
+const isDevelopment = process.env.NODE_ENV === "development";
+console.log(app.getAppPath(), "resources", "dev.db");
+const dbPath = isDevelopment
+  ? path.resolve(__dirname, "..", "..", "db", "dev.db")
+  : path.join(app.getPath('userData'), "dev.db");
+
 
 const database = knex({
   client: "sqlite3",
   connection: {
-    filename: path.resolve(dbPath),
+    filename: dbPath,
   },
   useNullAsDefault: true,
 });
 
 function createWindow(): void {
-  const isDevelopment = process.env.NODE_ENV === "development";
-
   const mainWindow = new BrowserWindow({
     width: 800,
     height: 600,

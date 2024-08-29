@@ -8,7 +8,7 @@
     "build": "npm run build:renderer && npm run build:main",
     "dev": "cross-env NODE_ENV=development concurrently \"vite\" \"electron .\"",
     "package": "electron-packager . --platform=win32 --arch=x64 --overwrite --asar --extra-resource=./libs/sqlite3.dll --extra-resource=./db/dev.db",
-    "electron": "electron ./dist/main/index.js",
+    "electron": " electron ./dist/main/index.js ",
     "rebuild-sql": "electron-rebuild -f -w sqlite3"
   },
   "keywords": [],
