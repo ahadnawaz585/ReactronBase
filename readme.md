@@ -312,6 +312,68 @@ For discussions, feature requests, and community support, please visit the [GitH
 
 This project is licensed under the MIT License. See the [license.md](license.md) file for details.
 
+
+### 🤝 Contributing
+
+We welcome and appreciate contributions from the community! To ensure a smooth and effective collaboration, please follow these guidelines when contributing to the project:
+
+#### 🛠️ How to Contribute
+
+1. **Fork the Repository**:  
+   Start by [forking](https://github.com/ahadnawaz585/ReactronBase) the repository to your GitHub account. This will create a copy of the repository where you can make changes.
+
+2. **Clone Your Fork**:  
+   Clone your forked repository to your local machine.
+   ```bash
+   git clone https://github.com/ahadnawaz585/ReactronBase
+   cd your-repo-name
+   ```
+
+3. **Create a Branch**:  
+   Create a new branch for your changes. Use a descriptive name that reflects the purpose of the branch.
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+4. **Make Your Changes**:  
+   Implement your changes in the new branch. Ensure that your code adheres to the project's coding standards and includes relevant tests if applicable.
+
+5. **Commit Your Changes**:  
+   Write clear and concise commit messages. Follow [conventional commit guidelines](https://www.conventionalcommits.org/en/v1.0.0/) to keep the commit history clean and understandable.
+   ```bash
+   git add .
+   git commit -m "feat: add new feature X"
+   ```
+
+6. **Push to Your Fork**:  
+   Push the changes in your branch to your forked repository.
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+7. **Create a Pull Request**:  
+   Navigate to the original repository and submit a [pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) from your branch. Provide a detailed description of the changes you made and why they are necessary.
+
+#### 🧪 Code Standards
+
+- **Linting**: Ensure that your code passes the ESLint checks. Run `npm run lint` before committing your changes.
+- **Formatting**: Use Prettier for consistent code formatting. Run `npm run format` to automatically format your code.
+- **Tests**: If applicable, add tests for your changes and ensure all existing tests pass. Run `npm test` to execute the test suite.
+
+#### 📜 Pull Request Guidelines
+
+- **Descriptive Title**: Use a clear and descriptive title for your pull request that summarizes the changes.
+- **Detailed Description**: Explain the motivation behind your changes, any issues it fixes, and how to test the new feature or fix.
+- **Link to Issues**: If your pull request addresses an issue, link to the relevant issue(s) using the `Fixes #issue_number` syntax.
+- **Review Process**: Be patient during the review process. The maintainers may request changes or ask questions. Please address feedback promptly.
+
+#### 📝 Additional Notes
+
+- **Documentation**: If your contribution involves new features or changes to existing functionality, update the relevant documentation.
+- **Community Guidelines**: Be respectful and considerate in all interactions. Follow our [Code of Conduct](#) to maintain a positive and collaborative environment.
+
+
+
 ## 📚 Documentation
 
 For more details about the technologies used in this project, refer to the following resources:
